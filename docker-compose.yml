@@ -1,0 +1,19 @@
+services:
+  file-ninja:
+    build: .
+    container_name: file-ninja
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./uploads:/app/uploads
+    environment:
+      - APP_PASSWORD=admin123
+    restart: unless-stopped
+
+  cloudflare-tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: cf-tunnel-ninja
+    restart: unless-stopped
+    command: tunnel --url http://file-ninja:5000
+    depends_on:
+      - file-ninja

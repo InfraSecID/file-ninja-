@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileNinja — Local Web File Dropper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <div>
+                    <h1>File<span class="accent">Ninja</span></h1>
+                    <p class="subtitle">Stealthy &amp; Fast Local Web File Dropper</p>
+                </div>
+            </div>
+            <button id="refresh-btn" class="btn btn-secondary" title="Refresh file list">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <polyline points="1 20 1 14 7 14"></polyline>
+                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+                <span>Refresh</span>
+            </button>
+        </header>
+
+        <main class="main-content">
+            <!-- Drag and Drop Upload Section -->
+            <section class="upload-section">
+                <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Upload files by dropping or clicking">
+                    <input type="file" id="file-input" multiple hidden>
+                    <div class="drop-zone-content">
+                        <div class="upload-icon-wrapper">
+                            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </div>
+                        <h2 class="drop-title">Drag &amp; drop files here</h2>
+                        <p class="drop-subtitle">or click to browse from your device</p>
+                        <button type="button" id="browse-btn" class="btn btn-primary">Select Files</button>
+                    </div>
+                </div>
+
+                <!-- Upload Status / Progress Bar -->
+                <div id="upload-status" class="upload-status hidden" aria-live="polite">
+                    <div class="status-info">
+                        <span id="upload-status-text" class="status-text">Uploading file...</span>
+                        <span id="upload-percentage" class="status-percentage"></span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar indeterminate"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- File List Section -->
+            <section class="files-section">
+                <div class="section-header">
+                    <h2 class="section-title">Dropped Files</h2>
+                    <span id="file-count" class="badge">0 files</span>
+                </div>
+
+                <div id="file-list" class="file-list">
+                    <!-- Dynamic file cards will be injected here -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>FileNinja &bull; Local Network File Sharing</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

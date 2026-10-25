@@ -1,4 +1,5 @@
 # FileNinja
+<img width="1916" height="821" alt="Cyber-Ninja Riding a Neon Sky Whale" src="https://github.com/user-attachments/assets/c19ddcf6-0e2d-4d20-a5c8-f15cdaeebf8e" />
 
 FileNinja is a simple Flask web application for uploading, listing, downloading, and deleting files through a browser. Files are stored in the `uploads/` directory, which Docker Compose keeps on the host so files remain available when the application container is recreated.
 
